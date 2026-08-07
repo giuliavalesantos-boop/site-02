@@ -3,88 +3,152 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Florescer Sem Medo - Portal de Apoio</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Portal de Apoio ao Estudante - Juntos Contra a Violência</title>
+    <!-- Link para folha de estilo externa -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Ícones externos (FontAwesome) para enriquecer o visual -->
     <link rel="stylesheet" href="https://cloudflare.com">
 </head>
 <body>
 
+    <!-- Acessibilidade e Preferências -->
+    <div class="accessibility-bar">
+        <button id="btn-theme" title="Alternar Modo Escuro"><i class="fas fa-moon"></i></button>
+        <button id="btn-font-increase" title="Aumentar Fonte"><i class="fas fa-font"></i>+</button>
+        <button id="btn-font-decrease" title="Diminuir Fonte"><i class="fas fa-font"></i>-</button>
+    </div>
+
+    <!-- Cabeçalho Principal -->
     <header>
-        <div class="logo">
-            <i class="fa-solid fa-hand-holding-heart"></i> Florescer Sem Medo
+        <div class="header-container">
+            <h1><i class="fas fa-hand-holding-heart"></i> Portal de Apoio</h1>
+            <p>Respeito, Empatia e Acolhimento no Ambiente Escolar</p>
         </div>
         <nav>
             <ul>
-                <li><a href="index.html" class="active">Início</a></li>
-                <li><a href="escuta.html">Portal de Escuta</a></li>
-                <li><a href="quiz.html">Quiz</a></li>
+                <li><a href="#" class="nav-link active" data-target="inicio">Início</a></li>
+                <li><a href="#" class="nav-link" data-target="escuta">Portal de Escuta</a></li>
+                <li><a href="#" class="nav-link" data-target="quiz">Quiz Interativo</a></li>
+                <li><a href="#" class="nav-link" data-target="referencias">Referências</a></li>
             </ul>
         </nav>
-        <div class="accessibility-controls">
-            <button id="toggle-font" title="Aumentar Fonte"><i class="fa-solid fa-text-height"></i></button>
-            <button id="toggle-dark" title="Modo Escuro"><i class="fa-solid fa-moon"></i></button>
-            <button id="toggle-contrast" title="Alto Contraste"><i class="fa-solid fa-circle-half-stroke"></i></button>
-        </div>
     </header>
 
-    <main>
-        <section class="hero">
-            <h1>Portal de Apoio ao Estudante</h1>
-            <p class="welcome-text">
-                Bem-vindo ao nosso espaço seguro. Aqui você encontrará informações, orientações e apoio sobre o **Combate à Violência contra a Mulher** e relacionamentos saudáveis. Você não está sozinha.
-            </p>
-            
-            <!-- Diferencial: Carrossel de Imagens e Frases -->
-            <div class="carousel-container">
-                <div class="carousel-slide active">
-                    <img src="https://unsplash.com" alt="Mulheres unidas">
-                    <div class="carousel-caption">"O respeito é a base de qualquer relação."</div>
-                </div>
-                <div class="carousel-slide">
-                    <img src="https://unsplash.com" alt="Estudantes conversando">
-                    <div class="carousel-caption">"Não se cale. Seu silêncio não te protege."</div>
-                </div>
-                <button class="carousel-btn prev" id="prevBtn">&#10094;</button>
-                <button class="carousel-btn next" id="nextBtn">&#10095;</button>
-            </div>
-        </section>
+    <!-- Conteúdo Principal Dinâmico -->
+    <main class="container">
 
-        <section class="info-section">
-            <h2>Entendendo a Violência de Gênero</h2>
-            <p>A violência contra a mulher se manifesta de várias formas no cotidiano, inclusive entre jovens (como em namoros abusivos e assédio escolar). Identificar os sinais ajuda a proteger a si mesma e às suas amigas:</p>
+        <!-- 1. PÁGINA INICIAL -->
+        <section id="inicio" class="tab-content active-tab">
+            <div class="hero">
+                <h2>Violência Contra a Mulher: Conscientização e Apoio</h2>
+                <div class="hero-image-wrapper">
+                    <!-- URL Atualizada conforme solicitado -->
+                    <img src="https://spbancarios.com.br/11/2019/mais-de-12-milhao-de-mulheres-foram-vitimas-de-violencia-entre-2010-e-2017" alt="Gráfico ou imagem sobre a conscientização da violência contra a mulher" class="hero-img">
+                </div>
+                <p class="welcome-msg">
+                    "Bem-vindo ao Portal de Apoio ao Estudante. Aqui você encontrará informações, orientações e apoio sobre situações vivenciadas no ambiente escolar e social. Nosso objetivo é construir um espaço seguro onde nenhuma menina ou mulher se sinta sozinha."
+                </p>
+            </div>
             
-            <div class="cards-violencia">
+            <div class="info-cards">
                 <div class="card">
-                    <h3><i class="fa-solid fa-hand-fist"></i> Física</h3>
-                    <p>Qualquer conduta que ofenda a integridade ou a saúde corporal da mulher.</p>
+                    <h3><i class="fas fa-shield-alt"></i> O que é?</h3>
+                    <p>A violência contra a mulher envolve agressões físicas, psicológicas, morais, sexuais ou patrimoniais. No ambiente escolar, manifesta-se através de piadas machistas, assédio, comentários depreciativos e intimidação.</p>
                 </div>
                 <div class="card">
-                    <h3><i class="fa-solid fa-brain"></i> Psicológica</h3>
-                    <p>Humilhação, isolamento, ameaças, perseguição ou controle de comportamento.</p>
-                </div>
-                <div class="card">
-                    <h3><i class="fa-solid fa-comments"></i> Moral</h3>
-                    <p>Calúnia, difamação ou injúria (espalhar boatos ou expor fotos íntimas sem consentimento).</p>
+                    <h3><i class="fas fa-bullhorn"></i> Como ajudar?</h3>
+                    <p>Não se cale diante de atitudes desrespeitosas. Ouvir sem julgar e validar o sentimento da colega que sofreu uma agressão é o primeiro passo para o acolhimento seguro.</p>
                 </div>
             </div>
         </section>
 
-        <section id="referencias">
-            <h3><i class="fa-solid fa-book"></i> Referências e Fontes Confiáveis</h3>
-            <p>Todo o conteúdo deste portal foi baseado em diretrizes e legislações oficiais protetivas:</p>
-            <ul>
-                <li><a href="https://www.gov.br" target="_blank">Ministério das Mulheres (Brasil) <i class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
-                <li><a href="https://planalto.gov.br" target="_blank">Lei Maria da Penha (Lei nº 11.340) <i class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
-                <li><a href="https://www.gov.br" target="_blank">Ligue 180 - Central de Atendimento à Mulher <i class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
+        <!-- 2. PORTAL DE ESCUTA -->
+        <section id="escuta" class="tab-content">
+            <h2><i class="fas fa-comments"></i> Portal de Escuta</h2>
+            <p class="section-intro">Este espaço é seu. Sinta-se à vontade para compartilhar seus sentimentos de forma anônima. <strong>Lembre-se:</strong> este formulário é apenas uma simulação e os seus dados não serão salvos em nenhum lugar.</p>
+            
+            <div class="escuta-grid">
+                <!-- Formulário Simulado -->
+                <form id="form-escuta" class="styled-form">
+                    <div class="form-group">
+                        <label for="txt-desabafo">Escreva aqui seu desabafo:</label>
+                        <textarea id="txt-desabafo" rows="5" placeholder="Sinta-se acolhida para escrever..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Enviar Desabafo</button>
+                </form>
+
+                <!-- Bloco de Orientação e Motivação -->
+                <div class="guidance-box">
+                    <h3>Mensagem para o seu Coração</h3>
+                    <blockquote id="motivational-quote">
+                        "Você é mais forte do que imagina e não precisa carregar esse peso sozinha."
+                    </blockquote>
+                    <hr>
+                    <h4><i class="fas fa-info-circle"></i> Onde buscar ajuda real?</h4>
+                    <p>Se você ou alguma colega está passando por momentos difíceis, procure imediatamente adultos de sua confiança:</p>
+                    <ul>
+                        <li><i class="fas fa-user-tie"></i> Um professor ou pedagogo de sua escola.</li>
+                        <li><i class="fas fa-school"></i> A equipe de direção escolar.</li>
+                        <li><i class="fas fa-home"></i> Seus familiares ou responsáveis legais.</li>
+                        <li><i class="fas fa-phone-alt"></i> <strong>Ligue 180</strong> - Central de Atendimento à Mulher (Serviço gratuito e anônimo).</li>
+                    </ul>
+                </div>
+            </div>
+            <div id="escuta-feedback" class="feedback-toast hidden"></div>
+        </section>
+
+        <!-- 3. QUIZ INTERATIVO -->
+        <section id="quiz" class="tab-content">
+            <h2><i class="fas fa-puzzle-piece"></i> Quiz Interativo</h2>
+            <p class="section-intro">Teste seus conhecimentos sobre respeito, igualdade de gênero e combate à violência.</p>
+            
+            <div id="quiz-container">
+                <!-- As perguntas serão geradas dinamicamente via JS -->
+            </div>
+            
+            <button id="btn-submit-quiz" class="btn-submit">Verificar Resultado</button>
+            <div id="quiz-result" class="quiz-result-box hidden"></div>
+        </section>
+
+        <!-- 4. PÁGINA DE REFERÊNCIAS -->
+        <section id="referencias" class="tab-content">
+            <h2><i class="fas fa-book"></i> Referências e Fontes Confiáveis</h2>
+            <p class="section-intro">Toda informação segura baseia-se em dados oficiais. Conheça os canais e cartilhas utilizados na elaboração deste portal:</p>
+            
+            <ul class="references-list">
+                <li>
+                    <i class="fas fa-external-link-alt"></i>
+                    <a href="https://www.gov.br" target="_blank" rel="noopener">
+                        <strong>Ministério das Mulheres - Ligue 180</strong>
+                    </a> 
+                    - Portal de informações oficiais do Governo Federal sobre a Central de Atendimento à Mulher.
+                </li>
+                <li>
+                    <i class="fas fa-external-link-alt"></i>
+                    <a href="https://institutomariadapenha.org.br" target="_blank" rel="noopener">
+                        <strong>Instituto Maria da Penha</strong>
+                    </a> 
+                    - Mecanismos de conscientização, aplicação da lei e canais educativos sobre violência de gênero.
+                </li>
+                <li>
+                    <i class="fas fa-external-link-alt"></i>
+                    <a href="https://cnmp.mp.br" target="_blank" rel="noopener">
+                        <strong>Ouvidoria da Mulher - CNMP</strong>
+                    </a> 
+                    - Canal do Conselho Nacional do Ministério Público voltado para o recebimento de denúncias e orientações.
+                </li>
             </ul>
         </section>
+
     </main>
 
+    <!-- Rodapé -->
     <footer>
-        <p>&copy; 2026 Portal Florescer Sem Medo. Desenvolvido para fins educacionais.</p>
-        <button id="back-to-top" title="Voltar ao topo"><i class="fa-solid fa-arrow-up"></i></button>
+        <p>&copy; 2026 - Portal de Apoio ao Estudante. Desenvolvido para fins educacionais.</p>
+        <button id="btn-back-to-top" title="Voltar ao Topo"><i class="fas fa-arrow-up"></i></button>
     </footer>
 
-    <script src="js/script.js"></script>
+    <!-- Link para o script JS externo -->
+    <script src="script.js"></script>
 </body>
 </html>
