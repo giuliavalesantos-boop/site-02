@@ -4,20 +4,151 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portal de Apoio ao Estudante - Juntos Contra a Violência</title>
+    <!-- Link para folha de estilo externa -->
     <link rel="stylesheet" href="style.css">
+    <!-- Ícones oficiais do FontAwesome (Corrigido e funcional) -->
     <link rel="stylesheet" href="https://cloudflare.com">
 </head>
 <body>
-    <header><h1>Portal de Apoio</h1></header>
+
+    <!-- Acessibilidade e Preferências -->
+    <div class="accessibility-bar">
+        <button id="btn-theme" title="Alternar Modo Escuro"><i class="fas fa-moon"></i></button>
+        <button id="btn-font-increase" title="Aumentar Fonte"><i class="fas fa-font"></i>+</button>
+        <button id="btn-font-decrease" title="Diminuir Fonte"><i class="fas fa-font"></i>-</button>
+    </div>
+
+    <!-- Cabeçalho Principal -->
+    <header>
+        <div class="header-container">
+            <h1><i class="fas fa-hand-holding-heart"></i> Portal de Apoio</h1>
+            <p>Respeito, Empatia e Acolhimento no Ambiente Escolar</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#" class="nav-link active" data-target="inicio">Início</a></li>
+                <li><a href="#" class="nav-link" data-target="escuta">Portal de Escuta</a></li>
+                <li><a href="#" class="nav-link" data-target="quiz">Quiz Interativo</a></li>
+                <li><a href="#" class="nav-link" data-target="referencias">Referências</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Conteúdo Principal Dinâmico -->
     <main class="container">
-        <section id="inicio">
-            <div class="hero-image-wrapper">
-                <!-- Imagem segura da Agência Brasil com fallback -->
-                <img id="main-hero-img" src="https://ebc.com.br" alt="Maria da Penha" class="hero-img">
-                <div id="image-fallback-icon" class="fallback-box hidden"><i class="fas fa-female"></i></div>
+
+        <!-- 1. PÁGINA INICIAL -->
+        <section id="inicio" class="tab-content active-tab">
+            <div class="hero">
+                <h2>Violência Contra a Mulher: Conscientização e Apoio</h2>
+                <div class="hero-image-wrapper">
+                    <!-- Link direto e funcional do arquivo de imagem (.jpg) do servidor solicitado -->
+                    <img src="https://spbancarios.com.br" alt="Campanha pelo fim da violência contra a mulher" class="hero-img">
+                </div>
+                <p class="welcome-msg">
+                    "Bem-vindo ao Portal de Apoio ao Estudante. Aqui você encontrará informações, orientações e apoio sobre situações vivenciadas no ambiente escolar e social. Nosso objetivo é construir um espaço seguro onde nenhuma menina ou mulher se sinta sozinha."
+                </p>
+            </div>
+            
+            <div class="info-cards">
+                <div class="card">
+                    <h3><i class="fas fa-shield-alt"></i> O que é?</h3>
+                    <p>A violência contra a mulher envolve agressões físicas, psychologically, morais, sexuais ou patrimoniais. No ambiente escolar, manifesta-se através de piadas machistas, assédio, comentários depreciativos e intimidação.</p>
+                </div>
+                <div class="card">
+                    <h3><i class="fas fa-bullhorn"></i> Como ajudar?</h3>
+                    <p>Não se cale diante de atitudes desrespeitosas. Ouvir sem julgar e validar o sentimento da colega que sofreu uma agressão é o primeiro passo para o acolhimento seguro.</p>
+                </div>
             </div>
         </section>
+
+        <!-- 2. PORTAL DE ESCUTA -->
+        <section id="escuta" class="tab-content">
+            <h2><i class="fas fa-comments"></i> Portal de Escuta</h2>
+            <p class="section-intro">Este espaço é seu. Sinta-se à vontade para compartilhar seus sentimentos de forma anônima. <strong>Lembre-se:</strong> este formulário é apenas uma simulação e os seus dados não serão salvos em nenhum lugar.</p>
+            
+            <div class="escuta-grid">
+                <!-- Formulário Simulado -->
+                <form id="form-escuta" class="styled-form">
+                    <div class="form-group">
+                        <label for="txt-desabafo">Escreva aqui seu desabafo:</label>
+                        <textarea id="txt-desabafo" rows="5" placeholder="Sinta-se acolhida para escrever..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Enviar Desabafo</button>
+                </form>
+
+                <!-- Bloco de Orientação e Motivação -->
+                <div class="guidance-box">
+                    <h3>Mensagem para o seu Coração</h3>
+                    <blockquote id="motivational-quote">
+                        "Você é mais forte do que imagina e não precisa carregar esse peso sozinha."
+                    </blockquote>
+                    <hr>
+                    <h4><i class="fas fa-info-circle"></i> Onde buscar ajuda real?</h4>
+                    <p>Se você ou alguma colega está passando por momentos difíceis, procure imediatamente adultos de sua confiança:</p>
+                    <ul>
+                        <li><i class="fas fa-user-tie"></i> Um professor ou pedagogo de sua escola.</li>
+                        <li><i class="fas fa-school"></i> A equipe de direção escolar.</li>
+                        <li><i class="fas fa-home"></i> Seus familiares ou responsáveis legais.</li>
+                        <li><i class="fas fa-phone-alt"></i> <strong>Ligue 180</strong> - Central de Atendimento à Mulher (Serviço gratuito e anônimo).</li>
+                    </ul>
+                </div>
+            </div>
+            <div id="escuta-feedback" class="feedback-toast hidden"></div>
+        </section>
+
+        <!-- 3. QUIZ INTERATIVO -->
+        <section id="quiz" class="tab-content">
+            <h2><i class="fas fa-puzzle-piece"></i> Quiz Interativo</h2>
+            <p class="section-intro">Teste seus conhecimentos sobre respeito, igualdade de gênero e combate à violência.</p>
+            
+            <div id="quiz-container">
+                <!-- As perguntas serão geradas dinamicamente via JS -->
+            </div>
+            
+            <button id="btn-submit-quiz" class="btn-submit">Verificar Resultado</button>
+            <div id="quiz-result" class="quiz-result-box hidden"></div>
+        </section>
+
+        <!-- 4. PÁGINA DE REFERÊNCIAS -->
+        <section id="referencias" class="tab-content">
+            <h2><i class="fas fa-book"></i> Referências e Fontes Confiáveis</h2>
+            <p class="section-intro">Toda informação segura baseia-se em dados oficiais. Conheça os canais e cartilhas utilizados na elaboração deste portal:</p>
+            
+            <ul class="references-list">
+                <li>
+                    <i class="fas fa-external-link-alt"></i>
+                    <a href="https://www.gov.br" target="_blank" rel="noopener">
+                        <strong>Ministério das Mulheres - Ligue 180</strong>
+                    </a> 
+                    - Portal de informações oficiais do Governo Federal sobre a Central de Atendimento à Mulher.
+                </li>
+                <li>
+                    <i class="fas fa-external-link-alt"></i>
+                    <a href="https://institutomariadapenha.org.br" target="_blank" rel="noopener">
+                        <strong>Instituto Maria da Penha</strong>
+                    </a> 
+                    - Mecanismos de conscientização, aplicação da lei e canais educativos sobre violência de gênero.
+                </li>
+                <li>
+                    <i class="fas fa-external-link-alt"></i>
+                    <a href="https://spbancarios.com.br" target="_blank" rel="noopener">
+                        <strong>Plataforma EVA - Dados sobre Violência (Sindicato dos Bancários)</strong>
+                    </a> 
+                    - Fonte dos dados estatísticos sobre os índices de violência contra a mulher.
+                </li>
+            </ul>
+        </section>
+
     </main>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>&copy; 2026 - Portal de Apoio ao Estudante. Desenvolvido para fins educacionais.</p>
+        <button id="btn-back-to-top" title="Voltar ao Topo"><i class="fas fa-arrow-up"></i></button>
+    </footer>
+
+    <!-- Link para o script JS externo -->
     <script src="script.js"></script>
 </body>
 </html>
