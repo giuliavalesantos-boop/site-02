@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conscientização e Apoio: Violência contra a Mulher</title>
+    <!-- Ícones FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* === VARIÁVEIS DE CORES CHAMATIVAS E TEMAS === */
+        :root {
+            --bg-color: #fdf2f8;
+            --text-color: #1f2937;
+            --card-bg: #ffffff;
+            --primary: #d946ef; /* Magenta vivo */
+            --primary-hover: #c026d3;
+            --secondary: #8b5cf6; /* Roxo vibrante */
+            --accent: #f43f5e; /* Coral vibrante */
+            --shadow: rgba(217, 70, 239, 0.15);
+            --font-size-base: 16px;
+        }
+
+        /* Modo Escuro */
+        body.dark-mode {
+            --bg-color: #0f172a;
+            --text-color: #f8fafc;
+            --card-bg: #1e293b;
+            --primary: #f472b6;
+            --secondary: #a78bfa;
+            --shadow: rgba(0, 0, 0, 0.5);
+        }
+
+        /* Alto Contraste */
+        body.high-contrast {
+            --bg-color: #000000;
+            --text-color: #ffff00;
+            --card-bg: #000000;
+            --primary: #ffff00;
+            --secondary: #00ffff;
+            --accent: #ff00ff;
+            --shadow: none;
+        }
+
+        /* Estilos Globais */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s, color 0.3s, transform 0.2s;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: var(--font-size-base);
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding-bottom: 60px;
+        }
+
+        /* Acessibilidade & Controles Fixos */
+        .accessibility-bar {
+            background: var(--secondary);
+            color: white;
+            padding: 8px 16px;
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .btn-acc {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid white;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .btn-acc:hover {
+            background: white;
+            color: var(--secondary);
+        }
+
+        /* Cabeçalho e Navegação */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 4px 15px var(--shadow);
+        }
+
+        nav {
+            background: var(--card-bg);
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            box-shadow: 0 2px 10px var(--shadow);
+        }
+
+        nav a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+
+        /* Container Principal */
+        main {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        section {
+            background: var(--card-bg);
+            margin-bottom: 40px;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px var(--shadow);
+            border-left: 6px solid var(--primary);
+        }
+
+        h1, h2, h3 {
+            margin-bottom: 15px;
+        }
+
+        /* Carrossel de Imagens */
+        .carousel-container {
+            position: relative;
+            max-width: 100%;
+            overflow: hidden;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .carousel-slide {
+            display: flex;
+            width: 300%;
+            animation: slide 12s infinite;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            max-height: 350px;
+            object-fit: cover;
+        }
+
+        @keyframes slide {
+            0% { transform: translateX(0%); }
+            30% { transform: translateX(0%); }
+            33% { transform: translateX(-33.33%); }
+            63% { transform: translateX(-33.33%); }
+            66% { transform: translateX(-66.66%); }
+            96% { transform: translateX(-66.66%); }
+            100% { transform: translateX(0%); }
+        }
+
+        /* Formulário do Portal de Escuta */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 120px;
+            padding: 10px;
+            border-radius: 6px;
+            border: 2px solid var(--primary);
+            background: var(--bg-color);
+            color: var(--text-color);
+            resize: vertical;
+        }
+
+        .btn-submit {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-submit:hover {
+            background: var(--primary-hover);
+        }
+
+        .feedback-msg {
+            margin-top: 15px;
+            padding: 15px;
+            background: rgba(217, 70, 239, 0.1);
+            border: 1px solid var(--primary);
+            border-radius: 6px;
+            display: none;
+        }
+
+        .motivation-box {
+            margin-top: 20px;
+            padding: 15px;
+            background: var(--bg-color);
+            border-radius: 6px;
+            font-style: italic;
+        }
+
+        /* Quiz */
+        .quiz-option {
+            display: block;
+            margin: 8px 0;
+            padding: 10px;
+            background: var(--bg-color);
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .quiz-option:hover {
+            background: var(--secondary);
+            color: white;
+        }
+
+        #quiz-result {
+            font-weight: bold;
+            margin-top: 15px;
+            font-size: 1.2rem;
+        }
+
+        /* Botão Voltar ao Topo */
+        #btn-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--accent);
+            color: white;
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        /* Responsividade */
+        @media (max-width: 600px) {
+            nav {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Barra de Acessibilidade -->
+    <div class="accessibility-bar">
+        <button class="btn-acc" onclick="toggleTheme('dark')"><i class="fa-solid fa-moon"></i> Modo Escuro</button>
+        <button class="btn-acc" onclick="toggleTheme('contrast')"><i class="fa-solid fa-eye"></i> Alto Contraste</button>
+        <button class="btn-acc" onclick="changeFontSize(1)"><i class="fa-solid fa-font"></i> A+</button>
+        <button class="btn-acc" onclick="changeFontSize(-1)"><i class="fa-solid fa-font"></i> A-</button>
+    </div>
+
+    <header>
+        <h1><i class="fa-solid fa-hand-holding-heart"></i> Portal de Apoio e Conscientização</h1>
+        <p>"Bem-vindo ao Portal de Apoio ao Estudante. Aqui você encontrará informações, orientações e apoio sobre situações vivenciadas no ambiente escolar."</p>
+    </header>
+
+    <nav>
+        <a href="#sobre"><i class="fa-solid fa-info-circle"></i> Informações</a>
+        <a href="#escuta"><i class="fa-solid fa-comments"></i> Portal de Escuta</a>
+        <a href="#quiz"><i class="fa-solid fa-list-check"></i> Quiz Interativo</a>
+        <a href="#referencias"><i class="fa-solid fa-book"></i> Referências</a>
+    </nav>
+
+    <main>
+
+        <!-- Seção Informativa com Carrossel -->
+        <section id="sobre">
+            <h2>Conscientização sobre a Violência contra a Mulher</h2>
+            <p>A conscientização é o primeiro passo para o combate a qualquer forma de violência ou discriminação no ambiente escolar e na sociedade.</p>
+            
+            <div class="carousel-container">
+                <div class="carousel-slide">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80" alt="Mulheres unidas apoiando umas às outras">
+                    <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800&q=80" alt="Grupo de estudantes conversando com respeito">
+                    <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80" alt="Ambiente educacional inclusivo e seguro">
+                </div>
+            </div>
+        </section>
+
+        <!-- Portal de Escuta -->
+        <section id="escuta">
+            <h2><i class="fa-solid fa-heart"></i> Portal de Escuta</h2>
+            <p>Este é um espaço seguro para simulação de desabafo. Nenhuma informação escrita aqui será armazenada.</p>
+            
+            <form id="form-escuta" onsubmit="enviarDesabafo(event)">
+                <label for="desabafo">Escreva o seu desabafo:</label>
+                <textarea id="desabafo" placeholder="Sinta-se à vontade para expressar o que está sentindo..." required></textarea>
+                <button type="submit" class="btn-submit"><i class="fa-solid fa-paper-plane"></i> Enviar Desabafo</button>
+            </form>
+
+            <div id="feedback-escuta" class="feedback-msg">
+                <p><strong>Mensagem de Acolhimento:</strong> Você não está só. Agradecemos por compartilhar seus sentimentos. Lembre-se de que sua voz tem valor e que existem pessoas dispostas a ajudar.</p>
+            </div>
+
+            <div class="motivation-box">
+                <h3><i class="fa-solid fa-quote-left"></i> Frase Motivacional</h3>
+                <p id="frase-motivacional">"O respeito é a base de qualquer relação. Nunca se cale diante de uma injustiça."</p>
+            </div>
+
+            <div style="margin-top: 20px;">
+                <h3><i class="fa-solid fa-life-ring"></i> Onde procurar ajuda?</h3>
+                <p>Se você ou alguém que você conhece precisa de auxílio, procure orientações com:</p>
+                <ul>
+                    <li>Um professor de sua confiança;</li>
+                    <li>A equipe de pedagogos ou a direção da escola;</li>
+                    <li>Membros da família ou outro adulto de confiança.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Quiz Interativo -->
+        <section id="quiz">
+            <h2><i class="fa-solid fa-circle-question"></i> Quiz Interativo</h2>
+            <p>Responda às 5 perguntas abaixo para testar seus conhecimentos sobre respeito e convivência:</p>
+            
+            <form id="form-quiz">
+                <div style="margin-bottom: 15px;">
+                    <p><strong>1. Fazer piadas ofensivas recorrentes sobre o corpo ou atitudes de um colega é considerado bullying?</strong></p>
+                    <label class="quiz-option"><input type="radio" name="q1" value="sim"> Sim, é uma forma de violência verbal e psicológica.</label>
+                    <label class="quiz-option"><input type="radio" name="q1" value="nao"> Não, é apenas uma brincadeira comum.</label>
+                </div>
+
+                <div style="margin-bottom: 15px;">
+                    <p><strong>2. Pressionar alguém a fazer algo que não deseja demonstra respeito?</strong></p>
+                    <label class="quiz-option"><input type="radio" name="q2" value="nao"> Não, respeito exige consentimento e consideração pela vontade do outro.</label>
+                    <label class="quiz-option"><input type="radio" name="q2" value="sim"> Sim, mostra persistência.</label>
+                </div>
+
+                <div style="margin-bottom: 15px;">
+                    <p><strong>3. Como agir ao presenciar uma situação de discriminação ou violência no ambiente escolar?</strong></p>
+                    <label class="quiz-option"><input type="radio" name="q3" value="correto"> Buscar ajuda com um adulto responsável ou equipe pedagógica.</label>
+                    <label class="quiz-option"><input type="radio" name="q3" value="errado"> Ignorar a situação para não se envolver.</label>
+                </div>
+
+                <div style="margin-bottom: 15px;">
+                    <p><strong>4. Compartilhar fotos ou informações íntimas de terceiros sem permissão é correto?</strong></p>
+                    <label class="quiz-option"><input type="radio" name="q4" value="errado"> Sim, se for em grupos privados.</label>
+                    <label class="quiz-option"><input type="radio" name="q4" value="correto"> Não, é uma violação de privacidade e pode ser enquadrado como crime.</label>
+                </div>
+
+                <div style="margin-bottom: 15px;">
+                    <p><strong>5. O que você faria se um amigo estivesse passando por uma situação difícil ou de vulnerabilidade?</strong></p>
+                    <label class="quiz-option"><input type="radio" name="q5" value="correto"> Ofereceria escuta e o incentivaria a buscar ajuda profissional ou familiar.</label>
+                    <label class="quiz-option"><input type="radio" name="q5" value="errado"> Diria para ele guardar o problema apenas para si.</label>
+                </div>
+
+                <button type="button" class="btn-submit" onclick="calcularQuiz()"><i class="fa-solid fa-check"></i> Enviar Respostas</button>
+            </form>
+
+            <div id="quiz-result"></div>
+        </section>
+
+        <!-- Página de Referências -->
+        <section id="referencias">
+            <h2><i class="fa-solid fa-bookmark"></i> Página de Referências</h2>
+            <p>Fontes confiáveis utilizadas para a elaboração deste portal informativo:</p>
+            <ul style="margin-left: 20px; margin-top: 10px;">
+                <li><strong>Instituições de Ensino:</strong> <a href="https://www.gov.br/mec/pt-br" target="_blank" rel="noopener">Ministério da Educação (MEC)</a></li>
+                <li><strong>Organizações de Saúde:</strong> <a href="https://www.who.int/pt" target="_blank" rel="noopener">Organização Mundial da Saúde (OMS)</a></li>
+                <li><strong>Sites Governamentais:</strong> <a href="https://www.gov.br/mdh/pt-br" target="_blank" rel="noopener">Ministério dos Direitos Humanos e da Cidadania</a></li>
+                <li><strong>Cartilhas Educativas:</strong> <a href="https://www.cnmp.mp.br/" target="_blank" rel="noopener">Conselho Nacional do Ministério Público - Guias de Prevenção</a></li>
+            </ul>
+        </section>
+
+    </main>
+
+    <!-- Botão Voltar ao Topo -->
+    <button id="btn-top" onclick="voltarAoTopo()"><i class="fa-solid fa-arrow-up"></i></button>
+
+    <!-- JavaScript -->
+    <script>
+        // Funcionalidade de Acessibilidade: Tamanho da Fonte
+        let fontScale = 16;
+        function changeFontSize(delta) {
+            fontScale += delta;
+            if (fontScale < 12) fontScale = 12;
+            if (fontScale > 22) fontScale = 22;
+            document.documentElement.style.setProperty('--font-size-base', fontScale + 'px');
+        }
+
+        // Funcionalidade de Acessibilidade: Temas
+        function toggleTheme(theme) {
+            document.body.classList.remove('dark-mode', 'high-contrast');
+            if (theme === 'dark') {
+                document.body.classList.add('dark-mode');
+            } else if (theme === 'contrast') {
+                document.body.classList.add('high-contrast');
+            }
+        }
+
+        // Portal de Escuta: Simulação de envio
+        function enviarDesabafo(event) {
+            event.preventDefault();
+            document.getElementById('feedback-escuta').style.display = 'block';
+            document.getElementById('desabafo').value = '';
+        }
+
+        // Quiz: Processamento e Contagem de Respostas
+        function calcularQuiz() {
+            let pontos = 0;
+            const respostas = {
+                q1: 'sim',
+                q2: 'nao',
+                q3: 'correto',
+                q4: 'correto',
+                q5: 'correto'
+            };
+
+            for (let i = 1; i <= 5; i++) {
+                const radios = document.getElementsByName('q' + i);
+                for (const radio of radios) {
+                    if (radio.checked && radio.value === respostas['q' + i]) {
+                        pontos++;
+                    }
+                }
+            }
+
+            const resultadoDiv = document.getElementById('quiz-result');
+            resultadoDiv.innerHTML = `Você acertou <strong>${pontos}</strong> de 5 perguntas!`;
+            resultadoDiv.style.color = pontos >= 3 ? '#16a34a' : '#dc2626';
+        }
+
+        // Botão Voltar ao Topo
+        window.onscroll = function() {
+            const btn = document.getElementById('btn-top');
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                btn.style.display = 'block';
+            } else {
+                btn.style.display = 'none';
+            }
+        };
+
+        function voltarAoTopo() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
